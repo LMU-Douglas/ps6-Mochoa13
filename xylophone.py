@@ -27,7 +27,18 @@ def cost_of_bars(bars):
     all three given wooden bars.
     """
     # Hint: The python sort() method can be used to sort a list of integers in ascending order.
+    bars = bars.split()
+    bars = [int(bar) for bar in bars] # looked online to find a way to convert a string of integers to a proper list / methods that I did prior didn't work
+    bars = sorted(bars)
     
-    return None # TODO: Implement this function
+    total_cost = 0
+    count = int(bars[0]) # starts our counter to the lowest integer in our given order
+
+    while count < bars[2]: # continues until we reach the highest integer in our given order
+        if count not in bars: # checks if integer is present in list
+            total_cost += count # adds to total cost if integer is not in list
+        count += 1
+        
+    return total_cost
 
 # Run pytest test_problem_3.py to test the function

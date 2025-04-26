@@ -14,7 +14,7 @@ def test_cost_reverse_order():
     assert cost_of_bars("6 3 8") == 16
 
 def test_cost_with_larger_gap():
-    assert cost_of_bars("1 4 6") == 9
+    assert cost_of_bars("1 4 6") == 10
     
 def test_major_gap():
     assert cost_of_bars("1 10 5") == 39

@@ -21,7 +21,36 @@ def is_power_balanced(n, party):
     
     Note that the output is case-sensitive, and must match the format exactly without leading or trailing whitespace.
     """
-    
-    return None # TODO: Implement this function
+
+    # max legsilators for balance
+    MaxLegislators = int(n/2)
+
+    # party lists
+    FutureOne = []
+    TwoGether = []
+    TripleHarmony = []
+
+    # reformt string into a list
+    PartyAffiliation = party.split()
+
+    # counts vote per party
+    for i in PartyAffiliation:
+        if i == '1':
+            FutureOne.append('1')
+        elif i == '2':
+            TwoGether.append('2')
+        elif i == '3':
+            TripleHarmony.append('3')
+
+    # checks for balance of power  
+    if len(FutureOne) > MaxLegislators:
+        return "Future One Dominates"
+    elif len(TwoGether) > MaxLegislators:
+        return "Two-gether Dominates"
+    elif len(TripleHarmony) > MaxLegislators:
+        return "Triple Harmony Dominates"
+
+    # if all powers are balanced
+    return "Power Balanced"
 
 # Run pytest test_problem_1.py to test the function
